@@ -1,6 +1,6 @@
 import express from "express";
 import { getMasterCityData, getMasterDivisionData } from "../controllers/master.controller.js";
-import { createDivision, deleteDivisionById, getAllDivision, updateDivisionById } from "../controllers/division.js";
+import { createDivision, deleteDivisionById, getAllDivision, updateDivisionById } from "../controllers/division.controller.js";
 const router = express.Router();
 
 // router.get("/city", getMasterCityData)

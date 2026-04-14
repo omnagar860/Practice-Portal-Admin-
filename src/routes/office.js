@@ -1,10 +1,13 @@
 import express from "express"
-import { getAllOffice } from "../controllers/office.controller.js";
+import { updateOffice, getAllOffice, deleteOffice, createOffice } from "../controllers/office.controller.js";
 
 const router = express.Router();
 
-
+router.post("/createOffice", createOffice)
 router.get("/getAllOffice", getAllOffice)
+router.post("/updateOffice/:id", updateOffice)
+router.post("/deleteOffice/:id", deleteOffice)
+
 
 
 

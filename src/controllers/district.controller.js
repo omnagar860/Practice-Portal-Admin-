@@ -3,7 +3,8 @@ import {
     getAllDistrictService,
     getDistrictByIdService,
     updateDistrictByIdService,
-    deleteDistrictByIdService
+    deleteDistrictByIdService,
+    getDistrictByDivisionIdService
 } from "../services/district.js";
 
 // ✅ Create
@@ -50,6 +51,19 @@ export const getDistrictById = async (req, res) => {
     }
 };
 
+export const getDistrictByDivisionId = async(req,res)=> {
+    try {
+        const  divisionId = req.params.id;
+        // console.log("inside controoler divisdion id" , divisionId)
+        if(!divisionId) return res.status(400).json({success : false , message : "Division Id is required for getting districts."});
+        const data = await getDistrictByDivisionIdService(divisionId);
+        console.log("data by controller", data)
+        return res.status(200).json({success: true, message : "Fectched districts list by divison successfully", data : data})
+    } catch (error) {
+        console.log("Error while fetchine district by divisions");
+        return res.status(500).json({success: false , message : error.message})
+    }
+}
 // ✅ Deactivate
 export const updateDistrictById = async (req, res) => {
     try {

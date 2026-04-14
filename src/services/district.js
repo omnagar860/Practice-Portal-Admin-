@@ -27,6 +27,17 @@ export const getDistrictByIdService = async (id) => {
     return result[0] ?? null;
 };
 
+export const getDistrictByDivisionIdService = async (divisionId)=> {
+    try {
+        if(!divisionId) return "Division Id is required";
+        const data = await findRecords("mst_district", {divisionId});
+        // console.log("data in service", data)
+        return data;
+    } catch (error) {
+        throw new Error("Error while fecthing districts")
+    }
+}
+
 // ✅ Deactivate district (set isActive = 0)
 export const updateDistrictByIdService = async (id) => {
     if (!id) throw new Error("Id is required");
