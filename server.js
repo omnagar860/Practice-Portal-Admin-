@@ -4,6 +4,7 @@ import { connectDB } from "./src/config/db.js";
 import router from "./src/routes/index.js";
 import cors from "cors";
 import morgan from "morgan";
+import cookieParser  from "cookie-parser";
 
 dotenv.config({ path: "/.env" });
 
@@ -11,6 +12,7 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 const corsOPtions = {
   origin : "http://localhost:5173",

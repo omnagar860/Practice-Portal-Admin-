@@ -69,9 +69,10 @@ export const updateOfficeService = async(id)=> {
 
 export const deleteOfficeService = async(id)=> {
     try {
-        if(!id) if(!id) return ("deleteService:- Id is required");
+        if(!id) return ("deleteService:- Id is required");
         return await deleteRecord("mst_office",{id} )
     } catch (error) {
-        
+        console.log("Error while deleting office", error.message)
+        throw new Error("Error while delting office")
     }
 }

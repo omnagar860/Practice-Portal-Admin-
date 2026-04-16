@@ -13,7 +13,7 @@ const router = express.Router();
 
 router.post("/create-division", createDivision);
 router.get("/getAllDivision", getAllDivision);
-router.delete("/deletedivision/:id", deleteDivisionById)
+router.post("/deletedivision/:id", deleteDivisionById)
 router.post("/updateDivision/:id", updateDivisionById)
 
 

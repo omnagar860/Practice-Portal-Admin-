@@ -4,6 +4,7 @@ export const createDivision = async (req, res) => {
   try {
     // console.log('===== controller')
     const { division } = req.body;
+    console.log(division)
     await createDivisionService(division);
     return res
       .status(201)
