@@ -33,6 +33,7 @@ export const insertRecord = async (tableName, fields) => {
         OUTPUT INSERTED.*
         VALUES (${paramNames.join(", ")})
     `;
+    // console.log("query======================",query)
 
     const result = await request.query(query);
     // console.log("======", result)
