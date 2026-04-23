@@ -39,11 +39,11 @@ export const getDistrictByDivisionIdService = async (divisionId)=> {
 }
 
 // ✅ Deactivate district (set isActive = 0)
-export const updateDistrictByIdService = async (id) => {
+export const updateDistrictByIdService = async (id,isActive) => {
     if (!id) throw new Error("Id is required");
     return await updateRecord(
         "mst_district",
-        { isActive: false },
+        {isActive},
         { id }
     );
 };

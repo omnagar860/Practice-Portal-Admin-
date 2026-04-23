@@ -33,13 +33,6 @@ export const creatOfficeService = async (data) => {
     try {
         console.log("data in service", data)
         if (!data) throw new Error("Enter data to create office");
-        // if(!data.division.trim() || data.division.trim() === "") return "Please enter division name";
-        // if(!data.officeName.trim() || data.officeName.trim() === "") return "Please enter office name";
-        // if(!data.district.trim() || data.district.trim() === "") return "Please enter district name";
-        // if(!data.address.trim() || data.address.trim() === "") return "Please enter office address.";
-        // if(!data.area.trim() || data.area.trim() === "") return "Please enter value of area.";
-        // if(!data.pincode && typeof data.pincode !== "number") return "Please enter valid pincode.";
-
         if (!data.officeName?.trim()) throw new Error("Please enter office name");
         if (!data.division?.trim()) throw new Error("Please enter division name");
         if (!data.district?.trim()) throw new Error("Please enter district name");
@@ -67,12 +60,11 @@ export const updateOfficeService = async(id)=> {
     }
 }
 
-export const deleteOfficeService = async(id)=> {
-    try {
-        if(!id) return ("deleteService:- Id is required");
-        return await deleteRecord("mst_office",{id} )
-    } catch (error) {
-        console.log("Error while deleting office", error.message)
-        throw new Error("Error while delting office")
-    }
-}
+export const deleteOfficeService = async (id) => {
+   try {
+      return await deleteRecord("mst_office", { id });
+   } catch (error) {
+      console.log("Error while deleting office", error);
+      throw error; // preserve SQL error details
+   }
+};

@@ -1,4 +1,4 @@
-import { createPostService, getAllPostService, getDeletePostService, updatePostService } from "../services/post.js";
+import { createPostService, getAllPostService, getDeletePostService, getPostByOfficeIdService, updatePostService } from "../services/post.js";
 
 
 
@@ -49,3 +49,14 @@ export const deletePost = async(req,res)=> {
     }
 }
 
+export const getPostByOfficeId = async (req,res)=> {
+    try{
+        const officeId = req.params.id;
+        if(!officeId) return res.status(400).json({success: false , message : "Office Id is required."});
+        const data = await getPostByOfficeIdService(officeId);
+        return res.status(200).json({success:true, data : data , message : "Post data fetched successfully."})
+    } catch {
+        console.log("Controller Error", error) 
+        return res.status(500).json({success: false, message : "Error while getting post data." , error})
+    }
+}

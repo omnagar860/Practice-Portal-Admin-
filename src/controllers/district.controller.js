@@ -68,9 +68,12 @@ export const getDistrictByDivisionId = async(req,res)=> {
 export const updateDistrictById = async (req, res) => {
     try {
         const id = req.params.id;
+        const {isActive} = req.body;
         if (!id) return res.status(400).json({ success: false, message: "Id is required" });
-        await updateDistrictByIdService(id);
-        return res.status(200).json({ success: true, message: "District deactivated successfully." });
+        await updateDistrictByIdService(id,isActive);
+        return res.status(200).json({ success: true, message: `District ${
+        isActive ? "activated" : "deactivated"
+      } successfully.`, });
     } catch (error) {
         console.error("Error updating district:", error);
         return res.status(500).json({ success: false, message: "Error while updating district" });

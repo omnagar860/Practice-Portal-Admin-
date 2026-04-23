@@ -20,7 +20,7 @@ export async function loginService(data) {
 
   if (!user) {
     throw {
-      message: "User not found",
+      message: "Incorrect email, password.",
       statusCode: 404,
     };
   }
@@ -147,9 +147,10 @@ export const createUserService = async (userData) => {
 
 export const getAllUsersService = async () => {
   const pool = await getPool();
+  const role = "department"
 
   const result = await pool.request().query(`
-    SELECT *
+    SELECT id , first_name, last_name, email, district, mobile_number
     FROM users
     ORDER BY created_at DESC
   `);

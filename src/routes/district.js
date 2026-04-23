@@ -9,12 +9,8 @@ router.post("/createDistrict", createDistrict);
 router.get("/getAllDistrict", getAllDistrict);
 router.get("/getDistrictById/:id", getDistrictById);
 router.get("/getDistrictByDivisionId/:id", getDistrictByDivisionId);
-router.put("/updateDistrict/:id", updateDistrictById);
-router.delete("/deleteDistrict/:id", deleteDistrictById);
-// router.post("createDistrict", createDistrict);
-// router.get("/getAllDistrict", getAllDistrict);
-// router.put("/updateDistrictById/:id", updateDistrictById);
-// router.delete("deleteDistrictById/:id", deleteDistrictById)
+router.post("/updateDistrict/:id", updateDistrictById);
+router.post("/deleteDistrict/:id", deleteDistrictById);
 
 
 export default router

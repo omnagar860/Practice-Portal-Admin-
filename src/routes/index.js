@@ -6,7 +6,9 @@ import officeRouter from "./office.js"
 import postRouter from "./post.js"
 import officePostRouter from "./office_post.js";
 import userRouter from "./user.js"
-import assignPostUserRouter from "./assign_post_user.js"
+import assignPostUserRouter from "./assign_post_user.js";
+import applicationRouter from "./applicationType.js"
+import privilegeRouter from "./priviliges.js";
 
 const router = express.Router();
 
@@ -18,5 +20,7 @@ router.use("/post", postRouter);
 router.use("/officePost", officePostRouter);
 router.use("/user", userRouter);
 router.use("/assign-post-user", assignPostUserRouter);
+router.use("/application-type", applicationRouter);
+router.use("/privileges", privilegeRouter);
 
 export default router;

@@ -22,7 +22,7 @@ export const addPostInOffice = async(req,res)=> {
         if(!officeId) return res.status(400).json({success :false, message : "Office Id is required."});
         if(!postId) return res.status(400).json({success :false, message : "Post Id is required."});
         const data = await addPostInOfficeService(officeId,postId);
-        return res.status(200).json({succes:true , message : "Post added in office successfully."})
+        return res.status(200).json({success:true , message : "Post added in office successfully."})
     } catch (error) {
   console.log("Error while adding post in office", error.message);
 

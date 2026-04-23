@@ -25,10 +25,10 @@ export const deleteDivisionByIdService = async (id) => {
 };
 
 // ✅ Deactivate (set isActive = 0)
-export const updateDivisionByIdService = async (id) => {
+export const updateDivisionByIdService = async (id,isActive) => {
     return await updateRecord(
         "mst_division",
-        { isActive: false },   // fields to update — false → sql.Bit → 0
+        { isActive: isActive },   // fields to update — false → sql.Bit → 0
         { id }                 // condition
     );
 };
