@@ -9,6 +9,7 @@ import userRouter from "./user.js"
 import assignPostUserRouter from "./assign_post_user.js";
 import applicationRouter from "./applicationType.js"
 import privilegeRouter from "./priviliges.js";
+import userPermissions from "./user_permission.js";
 
 const router = express.Router();
 
@@ -22,5 +23,6 @@ router.use("/user", userRouter);
 router.use("/assign-post-user", assignPostUserRouter);
 router.use("/application-type", applicationRouter);
 router.use("/privileges", privilegeRouter);
+router.use("/user-permissions", userPermissions);
 
 export default router;
